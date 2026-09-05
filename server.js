@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("fs");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
@@ -44,8 +44,10 @@ app.delete("/notes/:id", (req, res) => {
     res.json({ message: "Note deleted successfully" });
 });
 
-   const PORT = process.env.PORT || 3000;
+// Serve frontend files
+app.use(express.static(__dirname));
 
+// Start server
 app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });
