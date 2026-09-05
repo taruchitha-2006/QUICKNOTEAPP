@@ -8,13 +8,13 @@ app.use(express.json());
 
 const notesFile = "./notes.json";
 
-// GET all notes
+// GET all notes - READ
 app.get("/notes", (req, res) => {
     const notes = JSON.parse(fs.readFileSync(notesFile, "utf8"));
     res.json(notes);
 });
 
-// POST a new note
+// POST a new note - CREATE
 app.post("/notes", (req, res) => {
     const notes = JSON.parse(fs.readFileSync(notesFile, "utf8"));
 
@@ -31,7 +31,27 @@ app.post("/notes", (req, res) => {
     res.status(201).json(newNote);
 });
 
-// DELETE a note
+// PUT a note - UPDATE
+app.put("/notes/:id", (req, res) => {
+    const notes = JSON.parse(fs.readFileSync(notesFile, "utf8"));
+
+    const id = Number(req.params.id);
+
+    const noteIndex = notes.findIndex(note => note.id === id);
+
+    if (noteIndex === -1) {
+        return res.status(404).json({ message: "Note not found" });
+    }
+
+    notes[noteIndex].title = req.body.title;
+    notes[noteIndex].content = req.body.content;
+
+    fs.writeFileSync(notesFile, JSON.stringify(notes, null, 2));
+
+    res.json(notes[noteIndex]);
+});
+
+// DELETE a note - DELETE
 app.delete("/notes/:id", (req, res) => {
     const notes = JSON.parse(fs.readFileSync(notesFile, "utf8"));
 
