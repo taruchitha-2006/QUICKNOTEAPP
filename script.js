@@ -3,7 +3,7 @@ const titleInput = document.getElementById("title");
 const contentInput = document.getElementById("content");
 const notesContainer = document.getElementById("notesContainer");
 
-const API_URL = "http://localhost:3000/notes";
+const API_URL = "/notes";
 
 async function loadNotes() {
     const response = await fetch(API_URL);
