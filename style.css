@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #dbeafe, #fce7f3);
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+    text-align: center;
+    color: #7c3aed;
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+input,
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    margin-bottom: 15px;
+    border: 2px solid #c4b5fd;
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #7c3aed;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #7c3aed, #ec4899);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+#notesList {
+    margin-top: 25px;
+}
+
+.note {
+    background: #f5f3ff;
+    border-left: 6px solid #8b5cf6;
+    padding: 18px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.note h3 {
+    color: #6d28d9;
+    margin-top: 0;
+}
+
+.note p {
+    color: #374151;
+    line-height: 1.5;
+}
+
+.delete-btn {
+    background: #ef4444;
+    width: auto;
+    padding: 9px 16px;
+    font-size: 14px;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+    
+}
+input::placeholder,
+textarea::placeholder {
+    color: #c4a7a7;
+    font-size: 14px;
+}
