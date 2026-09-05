@@ -44,7 +44,8 @@ app.delete("/notes/:id", (req, res) => {
     res.json({ message: "Note deleted successfully" });
 });
 
-    app.use(express.static(__dirname));
-    app.listen(3000, () => {
-    console.log("Server running at http://localhost:3000");
+   const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server running at http://localhost:${PORT}`);
 });
